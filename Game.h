@@ -8,6 +8,7 @@
 #include "Human.h"
 #include "Bot.h"
 #include "ScoreBanner.h"
+#include<list>
 
 class Game
 {
@@ -30,6 +31,14 @@ private:
 	bool isRunning;
 	SDL_Window *window;
 	SDL_Renderer *renderer;
+
+	Ball* ball;
+	Human* human;
+	Bot* bot;
+	ScoreBanner* humanBanner;
+	ScoreBanner* botBanner;
+
+	std::list<DisplayObject*> children;
 
 };
 

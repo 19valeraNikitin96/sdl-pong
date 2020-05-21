@@ -1,13 +1,4 @@
 #include "Game.h"
-#include<list>
-
-Ball *ball;
-Human *human;
-Bot *bot;
-ScoreBanner* humanBanner;
-ScoreBanner* botBanner;
-
-std::list<DisplayObject*> children;
 
 Game::Game() {}
 Game::~Game() {}
