@@ -5,7 +5,7 @@ class Bot :
 {
 public:
 
-	Bot(SDL_Texture* texture, int startX, int startY, int width, int height, int speed, GameObject &target);
+	Bot(SDL_Renderer* renderer, int startX, int startY, int width, int height, int speed, GameObject &target);
 
 	virtual void move();
 

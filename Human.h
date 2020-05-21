@@ -5,7 +5,7 @@ class Human :
 {
 public:
 
-	Human(SDL_Texture* texture, int startX, int startY, int width, int height, int speed);
+	Human(SDL_Renderer *renderer, int startX, int startY, int width, int height, int speed);
 
 };
 

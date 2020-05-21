@@ -2,10 +2,17 @@
 #ifndef Game_h
 #define Game_h
 #include "SDL.h"
+#include "SDL_image.h"
 #include <iostream>
+#include "Ball.h"
+#include "Human.h"
+#include "Bot.h"
+#include "ScoreBanner.h"
 
 class Game
 {
+public:
+	const int FPS = 24;
 public:
 	Game();
 	~Game();

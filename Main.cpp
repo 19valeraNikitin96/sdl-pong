@@ -1,22 +1,24 @@
 
-#include "SDL.h"
+#include "Game.h"
+
+using namespace std;
+
+Game* game = nullptr;
 
 int main(int argc, char * argv[])
 {
-
-    // retutns zero on success else non-zero 
-    SDL_Init(SDL_INIT_EVERYTHING);
-    SDL_Window* win = SDL_CreateWindow("GAME",
-        SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED,
-        1000, 1000, 0);
-    SDL_Renderer* renderer = SDL_CreateRenderer(win, -1, 0);
-    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    SDL_RenderClear(renderer);
-    SDL_RenderPresent(renderer);
-    SDL_Delay(3000);
-
-    //while (1);
-
+    game = new Game();
+    game->init("Netgames Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 550, 400, false);
+    int time;
+    while (game->running()) {
+        time = SDL_GetTicks();
+        game->handleEvents();
+        game->update();
+        game->render();
+        time = SDL_GetTicks() - time;
+        if (time < 1000 / game->FPS) 
+            SDL_Delay((1000 / game->FPS) - time);
+    }
+    game->clean();
     return 0;
 }

@@ -8,7 +8,7 @@ class ScoreBanner
 {
 public:
 
-	ScoreBanner(SDL_Renderer *renderer, int xpos, int ypos, int width, int height, Player& player);
+	ScoreBanner(int xpos, int ypos, int width, int height, Player& player);
 
 	/*******Observer***********/
 
@@ -20,8 +20,8 @@ private:
 
 private:
 	Player& player;
-private:
 	static SDL_Color color;
+public:
 	static TTF_Font* font;
 	static SDL_Renderer* renderer;
 };

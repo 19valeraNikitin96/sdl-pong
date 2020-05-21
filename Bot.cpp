@@ -1,16 +1,18 @@
 #include "Bot.h"
 
 Bot::Bot(
-	SDL_Texture* texture, 
+	SDL_Renderer *renderer,
 	int startX, 
 	int startY, 
 	int width, 
 	int height,
 	int speed, 
 	GameObject &target)
-	:Player(texture, startX, startY, width, height, speed)
+	:Player(startX, startY, width, height, speed), target(target)
 {
-	this->target = target;
+	SDL_Surface* tmpSurface = IMG_Load("assets\\pedal2.png");
+	texture = SDL_CreateTextureFromSurface(renderer, tmpSurface);
+	SDL_FreeSurface(tmpSurface);
 }
 
 void Bot::move()
